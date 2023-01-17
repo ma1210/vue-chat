@@ -24,11 +24,11 @@
                     </v-list-item-avatar>
 
                     <v-list-item-content>
-                      <v-list-item-title>Message {{ n }}</v-list-item-title>
 
-                      <v-list-item-subtitle>
+                      <v-list-item-subtitle class="message">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil repellendus distinctio similique
                       </v-list-item-subtitle>
+                      
                     </v-list-item-content>
                   </v-list-item>
 
@@ -42,6 +42,12 @@
             </v-card>
           </v-col>
         </v-row>
+
+        <v-textarea
+          name="input-messages"
+          label="Message"
+        ></v-textarea>
+
       </v-container>
     </v-main>
   </v-app>
@@ -49,8 +55,17 @@
 
 <script>
   export default {
+    created() {
+
+    },
     data: () => ({
-      cards: ['Today', 'Yesterday'],
+      cards: ['Today'],
     }),
   }
 </script>
+
+<style scoped>
+.message {
+  text-align: left;
+}
+</style>
