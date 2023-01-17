@@ -44,9 +44,22 @@
         </v-row>
 
         <v-textarea
+          v-model="body"
           name="input-messages"
           label="Message"
         ></v-textarea>
+
+        <v-btn 
+          class="mr-4"
+          type="submit"
+          :disabled="invalid"
+          @click="submit"
+        >
+          submit
+        </v-btn>     
+        <v-btn @click="clear">
+          clear
+        </v-btn>   
 
       </v-container>
     </v-main>
@@ -59,8 +72,25 @@
 
     },
     data: () => ({
+      body: '',
       cards: ['Today'],
     }),
+    computed: {
+      invalid() {
+        if(!this.body) {
+          return true
+        }
+        return false
+      },
+    },
+    methods: {
+      clear() {
+        this.body = ''
+      },
+      submit() {
+
+      }
+    },
   }
 </script>
 
