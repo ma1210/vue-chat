@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import UserListView from '../views/UserListView.vue'
+import ChartBoardView from '../views/ChartBoardView.vue'
 
 Vue.use(VueRouter)
 
@@ -9,6 +10,11 @@ const routes = [
     path: '/',
     name: 'user-list',
     component: UserListView
+  },
+  {
+    path: '/chat',
+    name: 'chat-board',
+    component: ChartBoardView
   },
   {
     path: '/about',
