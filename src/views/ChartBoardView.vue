@@ -96,7 +96,8 @@
         this.body = ''
       },
       submit() {
-
+        this.messages.unshift({message: this.body})
+        this.body = ''
       }
     },
   }
