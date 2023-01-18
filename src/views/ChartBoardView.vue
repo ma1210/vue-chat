@@ -67,9 +67,14 @@
 </template>
 
 <script>
+
+  import {db, getChats} from '../firebase/firebase.js'
+
   export default {
     created() {
+        const chats = getChats(db);
 
+        console.log("chats :", chats)
     },
     data: () => ({
       messages: [
