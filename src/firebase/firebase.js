@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -18,9 +18,11 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // Get a list of cities from your database
-function getChats(db) {
+async function getChats(db) {
   const chatCols = collection(db, 'chats')
-  return chatCols
+  const chatSnapshot = await getDocs(chatCols);
+  const chatList = chatSnapshot.docs.map(doc => doc.data());
+  return chatList;
 }
 
 export {db, getChats}

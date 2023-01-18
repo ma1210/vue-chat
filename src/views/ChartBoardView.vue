@@ -71,20 +71,14 @@
   import {db, getChats} from '../firebase/firebase.js'
 
   export default {
-    created() {
-        const chats = getChats(db);
-
-        console.log("chats :", chats)
+    async created() {
+        const chats = await getChats(db);
+        chats.forEach(chat => {
+          this.messages.push(chat)
+        });
     },
     data: () => ({
-      messages: [
-        {message: "message1"},
-        {message: "message2"},
-        {message: "message3"},
-        {message: "message4"},
-        {message: "message5"},
-        {message: "message6"},
-        ],      
+      messages: [],      
       body: '',
       cards: ['Today'],
     }),
