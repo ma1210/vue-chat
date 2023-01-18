@@ -1,56 +1,18 @@
 <template>
   <div id="app">
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-    >
-      <v-sheet
-        color="grey lighten-4"
-        class="pa-4"
-      >
-        <v-avatar
-          class="mb-4"
-          color="grey darken-1"
-          size="64"
-        ></v-avatar>
-
-        <div>john@vuetifyjs.com</div>
-      </v-sheet>
-
-      <v-divider></v-divider>
-
-      <v-list>
-        <v-list-item
-          v-for="[icon, text, to] in links"
-          :key="icon"
-          :to="to"
-          link
-        >
-          <v-list-item-icon>
-            <v-icon>{{ icon }}</v-icon>
-          </v-list-item-icon>
-
-          <v-list-item-content>
-            <v-list-item-title>{{ text }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+    <Sidebar/>
     <router-view/>
   </div>
 </template>
 
 <script>
+
+  import Sidebar from './components/layouts/Sidebar.vue';
+  
   export default {
-    data: () => ({
-      drawer: null,
-      links: [
-        ['mdi-inbox-arrow-down', 'Inbox', '/'],
-        ['mdi-send', 'Send', '/about'],
-        ['mdi-delete', 'Trash', '/about'],
-        ['mdi-alert-octagon', 'Spam', '/about'],
-      ],
-    }),
+    components: {
+      Sidebar
+    },
   }
 </script>
 
@@ -74,15 +36,6 @@ nav {
       color: #42b983;
     }
   }
-}
-
-.grey.darken-1 {
-    background-color: #757575!important;
-    border-color: #757575!important;
-}
-
-.mb-4 {
-    margin-bottom: 16px!important;
 }
 
 </style>
