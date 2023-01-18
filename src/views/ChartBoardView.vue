@@ -15,10 +15,10 @@
               <v-subheader>{{ card }}</v-subheader>
 
               <v-list two-line>
-                <template v-for="n in 6">
+                <template v-for="(data, index) in messages">
                   <v-list-item
 
-                    :key="n"
+                    :key="index"
                   >
                     <v-list-item-avatar color="grey darken-1">
                     </v-list-item-avatar>
@@ -26,15 +26,15 @@
                     <v-list-item-content>
 
                       <v-list-item-subtitle class="message">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil repellendus distinctio similique
+                        {{ data.message }}
                       </v-list-item-subtitle>
                       
                     </v-list-item-content>
                   </v-list-item>
 
                   <v-divider
-                    v-if="n !== 6"
-                    :key="`divider-${n}`"
+                    v-if="index !== 6"
+                    :key="`divider-${index}`"
                     inset
                   ></v-divider>
                 </template>
@@ -72,6 +72,14 @@
 
     },
     data: () => ({
+      messages: [
+        {message: "message1"},
+        {message: "message2"},
+        {message: "message3"},
+        {message: "message4"},
+        {message: "message5"},
+        {message: "message6"},
+        ],      
       body: '',
       cards: ['Today'],
     }),
